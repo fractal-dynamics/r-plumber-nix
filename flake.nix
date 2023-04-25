@@ -52,6 +52,8 @@
           knitr
           IRdisplay
           plotly
+          prophet
+          codetools
         ];
       };
     });
@@ -75,7 +77,8 @@
           rPackages.knitr
           rPackages.IRdisplay
           rPackages.plotly
-
+          rPackages.prophet
+          rPackages.codetools
         ];
       };
     });
@@ -84,5 +87,6 @@
     # flake provides only one package or there is a clear "main"
     # package.
     defaultPackage = forAllSystems (system: self.packages.${system}.r-service);
+    hydraJobs.r-service = self.defaultPackage.x86_64-linux;
   };
 }

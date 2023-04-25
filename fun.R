@@ -94,3 +94,18 @@ function() {
     # Return the JSON object as the response
     return(json)
 }
+
+#* fb prophet
+#* @get /ts_predict
+function() {
+  library(prophet)
+  df <- read.csv('https://raw.githubusercontent.com/facebook/prophet/main/examples/example_wp_log_peyton_manning.csv')
+  m <- prophet(df)
+  future <- make_future_dataframe(m, periods = 365)
+  tail(future)
+  forecast <- predict(m, future)
+  a <- tail(forecast[c('ds', 'yhat', 'yhat_lower', 'yhat_upper')])
+  # plot(m, forecast)
+  # prophet_plot_components(m, forecast)
+  jsonlite::toJSON(a)
+}
