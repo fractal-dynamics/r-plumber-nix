@@ -1,5 +1,5 @@
 {
-  description = "A simple Go package";
+  description = "R service";
 
   # Nixpkgs / NixOS version to use.
   inputs.nixpkgs.url = "nixpkgs/nixos-21.11";
