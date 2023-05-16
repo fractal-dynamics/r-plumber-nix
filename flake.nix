@@ -54,6 +54,7 @@
           plotly
           prophet
           codetools
+          reshape2
         ];
       };
     });
@@ -79,6 +80,7 @@
           rPackages.plotly
           rPackages.prophet
           rPackages.codetools
+          rPackages.reshape2
         ];
       };
     });
